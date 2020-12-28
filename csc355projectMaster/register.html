@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <title>Register</title>
+    <link rel = "stylesheet" type = "text/css" href = "register.css">
+    <script>
+    function isValidDate(d)
+    {
+    return isNaN((new Date(d)).getTime());
+    }
+
+
+    function validate()
+    {
+      if(document.getElementById("first_name").value=="")
+      {
+        alert("Provide a valid first name!");
+        document.getElementById("first_name").focus();
+        return false;
+      }
+
+      if(document.getElementById("last_name").value=="")
+      {
+        alert("Provide a valid last name!");
+        document.getElementById("last_name").focus();
+        return false;
+      }
+
+     var dob = document.getElementById("birthday").value;
+     if((isValidDate(dob))||(dob == "")||(dob.indexOf("/") != 2 && dob.indexOf("/") != 5)||(dob.length != 10))
+      {
+       alert("Please input a valid date of birth!");
+     document.getElementById("birthday").focus();
+     return false;
+      }
+
+    var emailID = document.getElementById("email").value;
+        var atpos = emailID.indexOf("@");
+        var dotpos = emailID.lastIndexOf(".");
+    if ((atpos < 1) || ( dotpos - atpos < 2 ))
+      {
+          alert("Please enter a valid email address: "+emailID);
+          document.getElementById("email").focus();
+          return false;
+      }
+
+     if ((document.getElementById("phone").value=="") || isNaN(document.getElementById("phone").value))
+    {
+        alert("Please enter a valid phone number!");
+        document.getElementById("phone").focus();
+        return false;
+      }
+
+      if ((document.getElementById("street_address").value==""))
+      {
+        alert("Please enter a valid street address!");
+        document.getElementById("street_address").focus();
+        return false;
+      }
+
+    if ((document.getElementById("city").value==""))
+      {
+        alert("Please enter a valid city!");
+        document.getElementById("city").focus();
+        return false;
+      }
+      if ((document.getElementById("zip_code").value=="") || isNaN(document.getElementById("zip_code").value))
+      {
+        alert("Please enter a zip code!");
+        document.getElementById("zip_code").focus();
+        return false;
+      }
+
+    return true;
+  }
+	</script>
+  </head>
+  <body>
+    <h1><b>Registration</b></h1>
+    <nav>
+        <ul>
+          <li><a href = "index.html">Home</a></li>
+          <li><a href = "rules.html">Rules</a></li>
+          <li><a href = "register.html">Registration</a></li>
+          <li><a href = "showtables.php">People Signed Up</a></li>
+		  <li><a href = "players.html">Top NBA Players</a></li>
+          <li><a href = "aboutUs.html">About Us</a></li>
+          <li><a href = "faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <h3>Please fill out the following information</h3>
+    <form id = "register" action = "data.php" method = "POST" name = "register" onsubmit = "return(validate());">
+      <img src = "greekfreak.jpg" alt = "greek">
+      <h3>Name: </h3>
+      First Name: <input type = "text" name = "first_name" id = "first_name" />
+      Last Name: <input type = "text" name = "last_name" id = "last_name" />
+      <h3>Information: </h3>
+      Date of Birth (mm/dd/yyyy): <input type = "text" name = "birthday" id = "birthday" />
+      Sex: <select name = "sex" id = "sex">
+          <option value = "Male" id = "Male" name = "Male">M</option>
+          <option value = "Female" id = "Female" name = "Female">F</option>
+      </select>
+      <h3>Contact Information: </h3>
+      Email Address: <input type = "text" name = "email" id = "email" />
+      Phone:  <input type = "text" name = "phone" id = "phone" />
+      <h3>Address: </h3>
+      Street Address: <input type = "text" name = "street_address" id = "street_address" />
+      City: <input type = "city" name = "city" id = "city" />
+      State: <select name = "state" id = "state">
+        <option value = "AL" id = "AL" name = "AL">AL</option>
+        <option value = "AK" id = "AK" name = "AK">AK</option>
+        <option value = "AZ" id = "AZ" name = "AZ">AZ</option>
+        <option value = "AR" id = "AR" name = "AR">AR</option>
+        <option value = "CA" id = "CA" name = "CA">CA</option>
+        <option value = "CO" id = "CO" name = "CO">CO</option>
+        <option value = "CT" id = "CT" name = "CT">CT</option>
+        <option value = "DE" id = "DE" name = "DE">DE</option>
+        <option value = "FL" id = "FL" name = "FL">FL</option>
+        <option value = "GA" id = "GA" name = "GA">GA</option>
+        <option value = "HI" id = "HI" name = "HI">HI</option>
+        <option value = "ID" id = "ID" name = "ID">ID</option>
+        <option value = "IL" id = "IL" name = "IL">IL</option>
+        <option value = "IN" id = "IN" name = "IN">IN</option>
+        <option value = "IA" id = "IA" name = "IA">IA</option>
+        <option value = "KS" id = "KS" name = "KS">KS</option>
+        <option value = "KY" id = "KY" name = "KY">KY</option>
+        <option value = "LA" id = "LA" name = "LA">LA</option>
+        <option value = "ME" id = "ME" name = "ME">ME</option>
+        <option value = "MD" id = "MD" name = "MD">MD</option>
+        <option value = "MA" id = "MA" name = "MA">MA</option>
+        <option value = "MI" id = "MI" name = "MI">MI</option>
+        <option value = "MN" id = "MN" name = "MN">MN</option>
+        <option value = "MS" id = "MS" name = "MS">MS</option>
+        <option value = "MO" id = "MO" name = "MO">MO</option>
+        <option value = "MT" id = "MT" name = "MT">MT</option>
+        <option value = "NE" id = "NE" name = "NE">NE</option>
+        <option value = "NV" id = "NV" name = "NV">NV</option>
+        <option value = "NH" id = "NH" name = "NH">NH</option>
+        <option value = "NJ" id = "NJ" name = "NJ">NJ</option>
+        <option value = "NM" id = "NM" name = "NM">NM</option>
+        <option value = "NY" id = "NY" name = "NY">NY</option>
+        <option value = "NC" id = "NC" name = "NC">NC</option>
+        <option value = "ND" id = "ND" name = "ND">ND</option>
+        <option value = "OH" id = "OH" name = "OH">OH</option>
+        <option value = "OK" id = "OK" name = "OK">OK</option>
+        <option value = "OR" id = "OR" name = "OR">OR</option>
+        <option value = "PA" id = "PA" name = "PA">PA</option>
+        <option value = "RI" id = "RI" name = "RI">RI</option>
+        <option value = "SC" id = "SC" name = "SC">SC</option>
+        <option value = "TN" id = "TN" name = "TN">TN</option>
+        <option value = "TX" id = "TX" name = "TX">TX</option>
+        <option value = "UT" id = "UT" name = "UT">UT</option>
+        <option value = "VT" id = "VT" name = "VT">VT</option>
+        <option value = "VA" id = "VA" name = "VA">VA</option>
+        <option value = "WA" id = "WA" name = "WA">WA</option>
+        <option value = "WV" id = "WV" name = "WV">WV</option>
+        <option value = "WI" id = "WI" name = "WI">WI</option>
+        <option value = "WY" id = "WY" name = "WY">WY</option>
+      </select>
+      Zip Code: <input type = "text" name = "zip_code" id = "zip_code">
+      <h3>Jersey: </h3>
+      Jersey: <select name = "jersey" id = "jersey">
+        <option value = "XS" id = "XS" name = "XS">XS</option>
+        <option value = "S" id = "S" name = "S">S</option>
+        <option value = "M" id = "M" name = "M">M</option>
+        <option value = "L" id = "L" name = "L">L</option>
+        <option value = "Xl" id = "XL" name = "XL">XL</option>
+      </select>
+      <br />
+      <br />
+      <input type = "submit" value = "Submit" />
+      <input type = "reset" value = "Reset" />
+    </form>
+  </body>
+</html>
